@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja" dir="ltr">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Language" content="ja" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<meta name="author" content="" />
+	<meta name="copyright" content="" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="generator" content="Progression 4.0.22" />
+	<title>share.js サンプル</title>
+	<style type="text/css">
+	*{
+		font-size:10px;
+	}
+	</style>
+	
+	<script type="text/javascript" src="js/share.js"></script>
+	<script type="text/javascript">
+	// <![CDATA[
+	var RET = '\n';
+	// ]]>
+	</script>
+</head>
+<body>
+
+<h2>share.js サンプル</h2>
+<h3>MAIL</h3>
+<ul>
+	<li><a href="javascript:share.mail('saz@knot-inc.co.jp', 'Title', 'This is a body.');">MAIL: 'saz@knot-inc.co.jp', 'Title', 'This is a body.'</a></li>
+	<li><a href="javascript:share.mail('saz@knot-inc.co.jp', 'メリークリスマス！', 'メリークリスマス！'+RET+'http://www.knot-inc.co.jp/xmas2010/?text=メリークリスマス！');">MAIL: 'saz@knot-inc.co.jp', 'メリークリスマス！', 'メリークリスマス！'+RET+'http://www.knot-inc.co.jp/xmas2010/?text=メリークリスマス！'</a></li>
+	<li><a href="javascript:share.mail('', 'メリークリスマス！', 'メリークリスマス！'+RET+'http://www.knot-inc.co.jp/xmas2010/?text=メリークリスマス！');">MAIL: '', 'メリークリスマス！', 'メリークリスマス！'+RET+'http://www.knot-inc.co.jp/xmas2010/?text=メリークリスマス！'</a></li>
+	<li><a href="javascript:share.mail('', 'メリークリスマス！', 'メリークリスマス！'+RET+'http://www.knot-inc.co.jp/xmas2010/#/メリークリスマス！');">MAIL: '', 'メリークリスマス！', 'メリークリスマス！'+RET+'http://www.knot-inc.co.jp/xmas2010/#/メリークリスマス！'</a></li>
+</ul>
+<h3>TWITTER</h3>
+<ul>
+	<li><a href="javascript:share.twitter('http://www.knot-inc.co.jp/xmas2010/?text=meriikuri_sumasu', 'メリークリスマス！');">TWITTER: 'http://www.knot-inc.co.jp/xmas2010/?text=meriikuri_sumasu', 'メリークリスマス！'</a></li>
+	<li><a href="javascript:share.twitter('http://www.knot-inc.co.jp/xmas2010/?text=メリークリスマス！', 'メリークリスマス！');">TWITTER: 'http://www.knot-inc.co.jp/xmas2010/?text=メリークリスマス！', 'メリークリスマス！'</a></li>
+	<li><a href="javascript:share.twitter('http://www.knot-inc.co.jp/xmas2010/%3Ftext=メリークリスマス！', 'メリークリスマス！');">TWITTER: 'http://www.knot-inc.co.jp/xmas2010/%3Ftext=メリークリスマス！', 'メリークリスマス！'</a></li>
+	<li><a href="javascript:share.twitter('http://www.knot-inc.co.jp/xmas2010/#/メリークリスマス！', 'メリークリスマス！');">TWITTER: 'http://www.knot-inc.co.jp/xmas2010/#/メリークリスマス！', 'メリークリスマス！'</a></li>
+</ul>
+<h3>FACEBOOK</h3>
+<ul>
+	<li><a href="javascript:share.facebook('http://www.knot-inc.co.jp/xmas2010/?text=meriikuri_sumasu');">FACEBOOK: http://www.knot-inc.co.jp/xmas2010/?text=meriikuri_sumasu</a></li>
+	<li><a href="javascript:share.facebook('http://www.knot-inc.co.jp/xmas2010/?text=メリークリスマス！');">FACEBOOK: http://www.knot-inc.co.jp/xmas2010/?text=メリークリスマス！</a></li>
+	<li><a href="javascript:share.facebook('http://www.knot-inc.co.jp/xmas2010/#/メリークリスマス！');">FACEBOOK: http://www.knot-inc.co.jp/xmas2010/#/メリークリスマス！</a></li>
+</ul>
+<h3>MIXI</h3>
+<ul>
+	<li><a href="javascript:share.mixiCheck('http://www.knot-inc.co.jp/xmas2010/?text=meriikuri_sumasu');">MIXI: http://www.knot-inc.co.jp/xmas2010/?text=meriikuri_sumasu</a></li>
+	<li><a href="javascript:share.mixiCheck('http://www.knot-inc.co.jp/xmas2010/?text=メリークリスマス！');">MIXI: http://www.knot-inc.co.jp/xmas2010/?text=メリークリスマス！</a></li>
+	<li><a href="javascript:share.mixiCheck('http://www.knot-inc.co.jp/xmas2010/#/メリークリスマス！');">MIXI: http://www.knot-inc.co.jp/xmas2010/#/メリークリスマス！</a></li>
+</ul>
+
+<h2>実験</h2>
+<h3>TWITTER</h3>
+<ul>
+<li><a href="http://twitter.com/share?text=XXXX&url=http://www.knot-inc.co.jp/xmas2010/?text=メリークリスマス！" target="_blank">TWITTER</a></li>
+<li><a href="http://twitter.com/share?text=XXXX&url=http://www.knot-inc.co.jp/xmas2010/?text=%E3%83%A1%E3%83%AA%E3%83%BC%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%9E%E3%82%B9%EF%BC%81" target="_blank">TWITTER</a></li>
+<li><a href="http://twitter.com/share?text=XXXX&url=http://www.knot-inc.co.jp/xmas2010/%3Ftext%3D%25E3%2583%25A1%25E3%2583%25AA%25E3%2583%25BC%25E3%2582%25AF%25E3%2583%25AA%25E3%2582%25B9%25E3%2583%259E%25E3%2582%25B9%25EF%25BC%2581" target="_blank">TWITTER http://www.knot-inc.co.jp/xmas2010/%3Ftext%3D%25E3%2583%25A1%25E3%2583%25AA%25E3%2583%25BC%25E3%2582%25AF%25E3%2583%25AA%25E3%2582%25B9%25E3%2583%259E%25E3%2582%25B9%25EF%25BC%2581</a><br/>"http://www.knot-inc.co.jp/xmas2010/?text=%E3%83%A1%E3%83%AA%E3%83%BC%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%9E%E3%82%B9%EF%BC%81"を指定したtweetボタンのリンク先（http://twitter.com/goodies/tweetbutton）</li>
+<li><a href="http://twitter.com/share?text=XXXX&url=http%3a%2f%2fwww%2eknot%2dinc%2eco%2ejp%2fxmas2010%2f%3ftext%3d%e3%83%a1%e3%83%aa%e3%83%bc%e3%82%af%e3%83%aa%e3%82%b9%e3%83%9e%e3%82%b9%ef%bc%81" target="_blank">TWITTER http://www.tagindex.com/cgi-lib/encode/url.cgiでエンコード</a></li>
+</ul>
+
+</body>
+</html>
