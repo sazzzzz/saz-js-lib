@@ -32,7 +32,6 @@ var share = function () {
 		 * @param	body	本文
 		 */
 		mail: function (address, subject, body) {
-			//var href = 'mailto:' + address + '?subject=' + encodeURI(subject) + '&body=' + encodeURI(body);
 			var href = 'mailto:' + address + '?';
 			if(subject) href = href + '&subject=' + encodeURI(subject);
 			if(body) href = href + '&body=' + encodeURI(body);
@@ -45,9 +44,6 @@ var share = function () {
 		 * @param	text	本文.
 		 */
 		twitter: function (url, text) {
-			//var linkUrl = encodeURI('http://twitter.com/share?&text=' + text + '&url=' + url);
-			//var linkUrl = 'http://twitter.com/share?text=' + text + '&url=' + url;
-			//var linkUrl = 'http://twitter.com/share?&text=' + encodeURI(text) + '&url=' + encodeURI(url);
 			var linkUrl = encodeURI('http://twitter.com/share?' + '&text=' + text + '&url=' + encodeURI(url));
 			var twitterWin = window.open(linkUrl,'shareTwitter','width=600,height=400');
 		},
@@ -58,8 +54,6 @@ var share = function () {
 		 */
 		facebook: function (url) {
 			// &t=でタイトルを指定できるらしいが、反映されない?
-			//var linkUrl = encodeURI('http://www.facebook.com/sharer.php?t=' + '' + '&u=' + url);
-			//var linkUrl = encodeURI('http://www.facebook.com/sharer.php?t=' + title + '&u=' + encodeURI(url));
 			var linkUrl = encodeURI('http://www.facebook.com/sharer.php?' + '&u=' + encodeURI(url));
 			var facebookWin = window.open(linkUrl,'shareFacebook','width=600,height=500');
 		},
@@ -71,8 +65,7 @@ var share = function () {
 		 * @param	url	登録するページのURL. URLに'#'を含めると正しく動作しません（#以降が無視される）. 実際のリンク先には'&__from=mixi'がつきます. 
 		 */
 		mixiCheck: function (url) {
-			//var linkUrl = 'http://mixi.jp/share.pl?' + '&u=' + url + '&k=' + MIXI_KEY;
-			var linkUrl = encodeURI('http://mixi.jp/share.pl?' + 'k=' + MIXI_KEY + '&u=' + encodeURI(url));
+			var linkUrl = encodeURI('http://mixi.jp/share.pl?' + '&k=' + MIXI_KEY + '&u=' + encodeURI(url));
 			var mixiWin = window.open(linkUrl,'shareMixiCheck','width=600,height=500');
 		},
 		
