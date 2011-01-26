@@ -32,27 +32,7 @@ var share = function () {
 		 * @param	body	本文
 		 */
 		mail: function (address, subject, body) {
-			//var href = 'mailto:' + address + '?';
-			//if(subject) href = href + '&subject=' + encodeURI(subject);
-			//if(body) href = href + '&body=' + encodeURI(body);
-			//location.href = href;
 			location.href = this.mailUrl(address, subject, body);
-		},
-		
-		mailUrl: function (address, subject, body) {
-			var href = 'mailto:' + address + '?';
-			if(subject) href = href + '&subject=' + encodeURI(subject);
-			if(body) href = href + '&body=' + encodeURI(body);
-			return href;
-		},
-		
-		/**
-		 * twitterでシェア旧バージョン. タイムラインで投稿. 
-		 * @param	text	本文. URLなど含める場合は、適宜エンコードすること. 
-		 */
-		twitterOld: function (text) {
-			var linkUrl = 'http://twitter.com/?status=' + encodeURI(text);
-			var twitterWin = window.open(linkUrl,'shareTwitter','');
 		},
 		
 		/**
@@ -61,13 +41,15 @@ var share = function () {
 		 * @param	text	本文.
 		 */
 		twitter: function (url, text) {
-			//var linkUrl = 'http://twitter.com/share?' + '&text=' + encodeURI(text) + '&url=' + encodeURI(encodeURI(url));
-			//var twitterWin = window.open(linkUrl,'shareTwitter','width=600,height=400');
 			var twitterWin = window.open(this.twitterUrl(url, text),'shareTwitter','width=600,height=400');
 		},
 		
-		twitterUrl: function (url, text) {
-			return 'http://twitter.com/share?' + '&text=' + encodeURI(text) + '&url=' + encodeURI(encodeURI(url));
+		/**
+		 * twitterでシェア旧バージョン. タイムラインで投稿. 
+		 * @param	text	本文. URLなど含める場合は、適宜エンコードすること. 
+		 */
+		twitterTL: function (text) {
+			var twitterTLWin = window.open(this.twitterTLUrl(text),'shareTwitter@TL','');
 		},
 		
 		/**
@@ -75,15 +57,7 @@ var share = function () {
 		 * @param	url	登録するページのURL. URLに'#'を含めると正しく動作しません（リクエストされたページが見つかりませんでした。）.
 		 */
 		facebook: function (url) {
-			// &t=でタイトルを指定できるようだが、反映されない?
-			//var linkUrl = 'http://www.facebook.com/sharer.php?' + '&u=' + encodeURI(encodeURI(url));
-			//var facebookWin = window.open(linkUrl,'shareFacebook','width=600,height=500');
 			var facebookWin = window.open(this.facebookUrl(url),'shareFacebook','width=600,height=500');
-		},
-		
-		facebookUrl: function (url) {
-			// &t=でタイトルを指定できるようだが、反映されない?
-			return 'http://www.facebook.com/sharer.php?' + '&u=' + encodeURI(encodeURI(url));
 		},
 		
 		/**
@@ -94,12 +68,29 @@ var share = function () {
 		 * @param	key	mixi Plugin のサービス識別キー. 
 		 */
 		mixiCheck: function (url, key) {
-			//if(!key && !MIXI_KEY) alert('変数"MIXI_KEY"に、mixi Plugin のサービス識別キーを設定してください。');
-			//
-			//if(!key) key = MIXI_KEY;
-			//var linkUrl = 'http://mixi.jp/share.pl?' + '&k=' + MIXI_KEY + '&u=' + encodeURI(encodeURI(url));
-			//var mixiWin = window.open(linkUrl,'shareMixiCheck','width=600,height=500');
 			var mixiWin = window.open(this.mixiCheckUrl(url, key),'shareMixiCheck','width=600,height=500');
+		},
+		
+		
+		
+		mailUrl: function (address, subject, body) {
+			var href = 'mailto:' + address + '?';
+			if(subject) href = href + '&subject=' + encodeURI(subject);
+			if(body) href = href + '&body=' + encodeURI(body);
+			return href;
+		},
+		
+		twitterUrl: function (url, text) {
+			return 'http://twitter.com/share?' + '&text=' + encodeURI(text) + '&url=' + encodeURI(encodeURI(url));
+		},
+		
+		twitterTLUrl: function (text) {
+			return 'http://twitter.com/?status=' + encodeURI(text);
+		},
+		
+		facebookUrl: function (url) {
+			// &t=でタイトルを指定できるようだが、反映されない?
+			return 'http://www.facebook.com/sharer.php?' + '&u=' + encodeURI(encodeURI(url));
 		},
 		
 		mixiCheckUrl: function (url, key) {
