@@ -9,21 +9,21 @@ var share = function () {
 	// PRIVATE
 	//--------------------------------------
 	
-	/**
-	 * mixi Plugin のサービス識別キー.
-	 * @see	http://ueblog.natural-wave.com/2010/09/13/mixi-check-for-wordpress/
-	 */
-	/*vvvvvvvvvvvvvvvvvvvv do edit! vvvvvvvvvvvvvvvvvvvv*/
-	//var MIXI_KEY = '81bea4a1aa4c5e2ee5f76c4468b9817d2a09cd81';
-	/*^^^^^^^^^^^^^^^^^^^^ do edit! ^^^^^^^^^^^^^^^^^^^^*/
-	
+	//var foo = 'bar';
 	
 	//--------------------------------------
 	// PUBLIC
 	//--------------------------------------
 	return {
 		
-		foo: 'bar',
+		//foo: 'bar',
+		/**
+		 * mixi Plugin のサービス識別キー.
+		 * @see	http://ueblog.natural-wave.com/2010/09/13/mixi-check-for-wordpress/
+		 */
+		/*vvvvvvvvvvvvvvvvvvvv do edit! vvvvvvvvvvvvvvvvvvvv*/
+		MIXI_KEY: 'XXXX',
+		/*^^^^^^^^^^^^^^^^^^^^ do edit! ^^^^^^^^^^^^^^^^^^^^*/
 		
 		/**
 		 * ﾒｰﾙで.
@@ -63,8 +63,8 @@ var share = function () {
 		/**
 		 * mixiチェック.
 		 * mixiデベロッパー登録し、Developer Dashboardから「mixi Plugin」「新規サービス追加」した上で、そのサービスの識別キーが必要です.
-		 * その識別キーをMIXI_KEYに設定してください。
-		 * @param	url	登録するページのURL. URLに'#'を含めると正しく動作しません（#以降が無視される）. 実際のリンク先には'&__from=mixi'がつきます. 
+		 * その識別キーを定数MIXI_KEYに設定するか、引数で指定してください。
+		 * @param	url	登録するページのURL. URLに'#'を含めると正しく動作しません（#以降が無視される）. 実際のリンク先には'&__from=mixi'がつきます. URLはパブリックであること。
 		 * @param	key	mixi Plugin のサービス識別キー. 
 		 */
 		mixiCheck: function (url, key) {
@@ -94,13 +94,13 @@ var share = function () {
 		},
 		
 		mixiCheckUrl: function (url, key) {
-			if(!key && !MIXI_KEY){
+			if(!key && !this.MIXI_KEY){
 				alert('変数"MIXI_KEY"に、mixi Plugin のサービス識別キーを設定してください。');
 				return;
 			}
 			
-			if(!key) key = MIXI_KEY;
-			return 'http://mixi.jp/share.pl?' + '&k=' + MIXI_KEY + '&u=' + encodeURI(encodeURI(url));
+			if(!key) key = this.MIXI_KEY;
+			return 'http://mixi.jp/share.pl?' + '&k=' + key + '&u=' + encodeURI(encodeURI(url));
 		},
 		
 		_EOP: 'EOP'
