@@ -81,7 +81,8 @@ var share = function () {
 		},
 		
 		twitterUrl: function (url, text) {
-			return 'http://twitter.com/share?' + '&text=' + encodeURI(text) + '&url=' + encodeURI(encodeURI(url));
+			//return 'http://twitter.com/share?' + '&text=' + encodeURI(text) + '&url=' + encodeURI(encodeURI(url));
+			return 'http://twitter.com/share?' + '&text=' + encodeURIComponent(text) + '&url=' + encodeURI(encodeURI(url));		//'#'もOK
 		},
 		
 		twitterTLUrl: function (text) {
