@@ -22,7 +22,7 @@ var share = function () {
 		 * @see	http://ueblog.natural-wave.com/2010/09/13/mixi-check-for-wordpress/
 		 */
 		/*vvvvvvvvvvvvvvvvvvvv do edit! vvvvvvvvvvvvvvvvvvvv*/
-		MIXI_KEY: 'XXXX',
+		//MIXI_KEY: 'XXXX',
 		/*^^^^^^^^^^^^^^^^^^^^ do edit! ^^^^^^^^^^^^^^^^^^^^*/
 		
 		/**
@@ -39,9 +39,11 @@ var share = function () {
 		 * twitterでシェア.
 		 * @param	url	登録するページのURL. URLに'#'を含めると正しく動作しません（#以降が無視される）. 
 		 * @param	text	本文.
+		 * @param	via	宛て先ユーザー. 
+		 * @param	related	おすすめユーザー. 2つ指定したい場合は「:」でつなぐ. 
 		 */
-		twitter: function (url, text) {
-			var twitterWin = window.open(this.twitterUrl(url, text),'shareTwitter','width=600,height=400');
+		twitter: function (url, text, via, related) {
+			var twitterWin = window.open(this.twitterUrl(url, text, via, related),'shareTwitter','width=600,height=400');
 		},
 		
 		/**
@@ -62,8 +64,7 @@ var share = function () {
 		
 		/**
 		 * mixiチェック.
-		 * mixiデベロッパー登録し、Developer Dashboardから「mixi Plugin」「新規サービス追加」した上で、そのサービスの識別キーが必要です.
-		 * その識別キーを定数MIXI_KEYに設定するか、引数で指定してください。
+		 * mixiデベロッパー登録し、Developer Dashboardから「mixi Plugin」「新規サービス追加」した上で、そのサービスの識別キーが必要です. その識別キーを引数で指定してください. 
 		 * @param	url	登録するページのURL. URLに'#'を含めると正しく動作しません（#以降が無視される）. 実際のリンク先には'&__from=mixi'がつきます. URLはパブリックであること。
 		 * @param	key	mixi Plugin のサービス識別キー. 
 		 */
@@ -80,9 +81,14 @@ var share = function () {
 			return href;
 		},
 		
-		twitterUrl: function (url, text) {
+		twitterUrl: function (url, text, via, related) {
 			//return 'http://twitter.com/share?' + '&text=' + encodeURI(text) + '&url=' + encodeURI(encodeURI(url));
-			return 'http://twitter.com/share?' + '&text=' + encodeURIComponent(text) + '&url=' + encodeURI(encodeURI(url));		//'#'もOK
+			//return 'http://twitter.com/share?' + '&text=' + encodeURIComponent(text) + '&url=' + encodeURI(encodeURI(url));		//'#'もOK⇒嘘。やっぱダメ。
+			var res = 'http://twitter.com/share?' + '&text=' + encodeURIComponent(text) + '&url=' + encodeURI(encodeURI(url));
+			if (via) res += '&via=' + via;
+			if (related) res += '&related=' + encodeURIComponent(related);
+			console.log(res);
+			return res;
 		},
 		
 		twitterTLUrl: function (text) {
@@ -95,12 +101,11 @@ var share = function () {
 		},
 		
 		mixiCheckUrl: function (url, key) {
-			if(!key && !this.MIXI_KEY){
-				alert('変数"MIXI_KEY"に、mixi Plugin のサービス識別キーを設定してください。');
+			if(!key){
+				alert('mixi Plugin のサービス識別キーを設定してください。');
 				return;
 			}
 			
-			if(!key) key = this.MIXI_KEY;
 			return 'http://mixi.jp/share.pl?' + '&k=' + key + '&u=' + encodeURI(encodeURI(url));
 		},
 		
