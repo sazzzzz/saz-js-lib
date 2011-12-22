@@ -62,3 +62,33 @@ if (typeof window.console !== 'object') {
 	};
 }
 
+//
+// css
+//
+/*
+#console {
+	width: 90%;
+	height: 10em;
+}
+#console ul {
+	border: 1px solid #666666;
+	background-color: #F0F0F0;
+	font-family: "ＭＳ ゴシック", "Osaka－等幅";
+	font-size: 12px;
+	margin: 2px;
+	padding: 3px;
+	list-style-type: none;
+	list-style-position: inside;
+	width: 100%;
+	height: 10em;
+	overflow: auto;
+}
+#console ul li {
+	margin: 0;
+	padding: 0;
+}
+#console ul li span {
+	padding: 0 1em 0 0;
+	font-weight: bold;
+}
+*/
