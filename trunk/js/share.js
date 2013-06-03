@@ -87,7 +87,6 @@ var share = function () {
 			var res = 'http://twitter.com/share?' + '&text=' + encodeURIComponent(text) + '&url=' + encodeURI(encodeURI(url));
 			if (via) res += '&via=' + via;
 			if (related) res += '&related=' + encodeURIComponent(related);
-			console.log(res);
 			return res;
 		},
 		
